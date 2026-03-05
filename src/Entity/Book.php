@@ -25,6 +25,9 @@ class Book
     #[ORM\Column(nullable: true)]
     private ?int $stock = null;
 
+    #[ORM\ManyToOne(inversedBy: 'Book')]
+    private ?Emprunt $books = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -74,6 +77,18 @@ class Book
     public function setStock(?int $stock): static
     {
         $this->stock = $stock;
+
+        return $this;
+    }
+
+    public function getBooks(): ?Emprunt
+    {
+        return $this->books;
+    }
+
+    public function setBooks(?Emprunt $books): static
+    {
+        $this->books = $books;
 
         return $this;
     }
