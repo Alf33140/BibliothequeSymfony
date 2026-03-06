@@ -1,12 +1,14 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Book index{% endblock %}
+    {% block title %}Book index{% endblock %}
 
-{% block body %}
+    {% block body %}
+    
     <div class="container">
-            <div class="container containerform">
-                <form class="login-form" method="post">
-                    <h1>Book index</h1>
+         <div class="form">   
+                <h1>Book index</h1>
+                
+                   
 
                     <table class="table">
                         <thead>
@@ -14,6 +16,7 @@
                                 <th>Id</th>
                                 <th>Titre</th>
                                 <th>Auteur</th>
+                                <th>Description</th>
                                 <th>Isbn</th>
                                 <th>Stock</th>
                                 <th>actions</th>
@@ -27,8 +30,10 @@
                                 <td>{{ book.id }}</td>
                                 <td>{{ book.Titre }}</td>
                                 <td>{{ book.auteur }}</td>
+                                <td>{{ book.description }}</td>
                                 <td>{{ book.isbn }}</td>
                                 <td>{{ book.stock }}</td>
+                                
                                 <td>
                                     <a href="{{ path('app_book_show', {'id': book.id}) }}"  class="btn btn-primary mt-4">show</a>
                                     <a href="{{ path('app_book_edit', {'id': book.id}) }}"  class="btn btn-secondary mt-4">modifier</a>
@@ -45,7 +50,7 @@
                     </table>
 
                     <a href="{{ path('app_book_new') }}">Create new</a>
-                </div>
+                
             </div>
     </div>
 {% endblock %}

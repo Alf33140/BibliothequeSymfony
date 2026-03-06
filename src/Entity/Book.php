@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\BookRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: BookRepository::class)]
@@ -30,6 +32,8 @@ class Book
 
     #[ORM\Column(length: 180, nullable: true)]
     private ?string $description = null;
+
+    
 
     public function getId(): ?int
     {
@@ -107,4 +111,8 @@ class Book
 
         return $this;
     }
+
+    
+
+    
 }

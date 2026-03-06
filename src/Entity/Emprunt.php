@@ -24,11 +24,9 @@ class Emprunt
     #[ORM\Column(length: 50)]
     private ?string $statut = null;
 
-    #[ORM\Column]
-    private ?int $book_id = null;
+    
 
-    #[ORM\Column]
-    private ?int $user_id = null;
+    
 
     /**
      * @var Collection<int, User>
@@ -41,6 +39,16 @@ class Emprunt
      */
     #[ORM\OneToMany(targetEntity: Book::class, mappedBy: 'books')]
     private Collection $Book;
+
+    #[ORM\ManyToOne]
+    private ?Book $book_id = null;
+
+    #[ORM\ManyToOne]
+    private ?User $user_id = null;
+
+    
+
+   
 
     public function __construct()
     {
@@ -89,29 +97,9 @@ class Emprunt
         return $this;
     }
 
-    public function getBookId(): ?int
-    {
-        return $this->book_id;
-    }
+    
 
-    public function setBookId(int $book_id): static
-    {
-        $this->book_id = $book_id;
-
-        return $this;
-    }
-
-    public function getUserId(): ?int
-    {
-        return $this->user_id;
-    }
-
-    public function setUserId(int $user_id): static
-    {
-        $this->user_id = $user_id;
-
-        return $this;
-    }
+    
 
     /**
      * @return Collection<int, User>
@@ -172,4 +160,32 @@ class Emprunt
 
         return $this;
     }
+
+    public function getBookId(): ?Book
+    {
+        return $this->book_id;
+    }
+
+    public function setBookId(?Book $book_id): static
+    {
+        $this->book_id = $book_id;
+
+        return $this;
+    }
+
+    public function getUserId(): ?User
+    {
+        return $this->user_id;
+    }
+
+    public function setUserId(?User $user_id): static
+    {
+        $this->user_id = $user_id;
+
+        return $this;
+    }
+
+    
+
+    
 }
