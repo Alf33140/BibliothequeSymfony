@@ -21,7 +21,7 @@
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="#">Livres</a></li>
-            <li><a class="dropdown-item" href="#">Faire un Emprunt</a></li>
+            <li><a class="dropdown-item" href="{{ path('app_emprunt_new') }}">Faire un Emprunt</a></li>
           </ul>
         </li>
       
@@ -37,7 +37,7 @@
             <li><a class="dropdown-item" href="{{ path('app_book_index') }}">gestion des Livres</a></li>
             <li><a class="dropdown-item" href="{{ path('app_book_new') }}">Ajout de Livvres</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Gestion des Emprunts</a></li>
+            <li><a class="dropdown-item" href="{{ path('app_emprunt_index') }}">Gestion des Emprunts</a></li>
             <li><a class="dropdown-item" href="#">Historique des Emprunts</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="{{ path('app_user') }}">Utilisateurs</a></li>

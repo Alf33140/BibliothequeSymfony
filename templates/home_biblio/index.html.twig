@@ -3,20 +3,32 @@
 {% block title %}Bibliotheque de Charleston{% endblock %}
 
 {% block body %}
-    <div class="container">
-        <style>
-            .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-            .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-        </style>
 
-        <div class="example-wrapper">
-            <h1>Hello {{ controller_name }}! ✅</h1>
-
-            This friendly message is coming from:
-            <ul>
-                <li>Your controller at <code>C:/wamp64/www/BibliothequeSymfony/biblio/src/Controller/HomeBiblioController.php</code></li>
-                <li>Your template at <code>C:/wamp64/www/BibliothequeSymfony/biblio/templates/home_biblio/index.html.twig</code></li>
-            </ul>
+        <div class="container container-home">
+            <div class='container'>
+                <h1>Bibliothèque </h1> 
+                    
+                    <h2>Liste des Livres</h2>
+            
+                <table class="table">
+                    <tbody>
+                        <div class="row">
+                            {% for book in books %}
+                                <div class="card" style="width: 18rem;">
+                                    <img src="{{ book.images }}" class="card-img-top">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ book.titre }}</h5>
+                                        <h5 class="card-title">{{ book.auteur }}</h5>
+                                        <p class="card-text">{{ book.description }}</p>
+                                        <p class="card-text">Stock: {{ book.stock }}</p>
+                                        <a href="{{ path('app_emprunt_new') }}" class="btn btn-primary">Emprunter</a>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                </table>
+            </div>
+        
         </div>
-    </div>
-{% endblock %}
+        </tbody>
+        {% endblock %}
